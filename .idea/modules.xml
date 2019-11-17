@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/complete.iml" filepath="$PROJECT_DIR$/.idea/modules/complete.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/complete.main.iml" filepath="$PROJECT_DIR$/.idea/modules/complete.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/complete.test.iml" filepath="$PROJECT_DIR$/.idea/modules/complete.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-websocket.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-websocket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-websocket.main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-websocket.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-websocket.test.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-websocket.test.iml" />
     </modules>
   </component>
 </project>
