@@ -9,10 +9,13 @@ import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 import org.springframework.web.socket.messaging.SessionSubscribeEvent;
 
 import java.time.LocalDateTime;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 @Component
 @Slf4j
 public class WebSocketEventListener {
+
+
 
     /** 새로운 클라이언트 세션을 STOMP 커넥션 받게되는 이벤트를 알려줍니다. */
     @EventListener(SessionConnectEvent.class)

@@ -24,6 +24,7 @@
                     <td th:text="${chatRoom.getChatRoomId()}"/>
                     <td th:text="${chatRoom.getChatTitle()}"/>
 <!--                    <td th:text="${chatRoom.getChatMemberCount()}"/>-->
+
                     <td><a class="btn btn-danger" href=""
                            th:href="@{/chat/{id}(id=${chatRoom.getChatRoomId()})}">입장하기</a></td>
                 </tr>
