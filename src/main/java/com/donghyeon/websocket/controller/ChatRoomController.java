@@ -1,6 +1,7 @@
 package com.donghyeon.websocket.controller;
 
 import com.donghyeon.websocket.chat.ChatRoom;
+import com.donghyeon.websocket.service.ChatRoomService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.donghyeon.websocket.repository.ChatRoomRepository;
+import reactor.core.publisher.Mono;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
@@ -19,6 +21,7 @@ import java.util.List;
 public class ChatRoomController {
 
     private final ChatRoomRepository chatRoomRepository;
+    private final ChatRoomService chatRoomService;
 
     @PostConstruct
     public void initChatRoom(){
@@ -29,21 +32,21 @@ public class ChatRoomController {
         );
         chatRoomRepository.saveAll(chatRoomList);
 
-
     }
 
-    @GetMapping("")
+
+
+    @GetMapping("/join")
     public String moveChatListPage(Model model) {
         List<ChatRoom> chatRoomList = chatRoomRepository.findAll();
-        model.addAttribute("chatRoomList",chatRoomList);
-        return "chat";
+        Mono<String> chatRoomId = chatRoomService.joinChatRoom();
+        model.addAttribute("chatRoomId", chatRoomId.block());
+        return "chat_room";
     }
 
-    @GetMapping("/{chatRoomId}")
-    public String moveChatRoom(Model model, @PathVariable("chatRoomId") Long chatRoomId) {
-        List<ChatRoom> chatRoomList = chatRoomRepository.findAll();
-        model.addAttribute("chatRoomId", chatRoomId);
-        return "chat_room";
+    @GetMapping()
+    public String moveChatRoom() {
+        return "chat";
     }
 
 }

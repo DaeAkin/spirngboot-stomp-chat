@@ -12,7 +12,7 @@ public class GreetingController {
 
     @MessageMapping("/hello/{chatRoomId}")
     @SendTo("/topic/greetings/{chatRoomId}")
-    public Greeting greeting(@DestinationVariable Long chatRoomId, HelloMessage message) throws Exception {
+    public Greeting greeting(@DestinationVariable String chatRoomId, HelloMessage message) throws Exception {
         System.out.println(message.toString());
         System.out.println("greeting()");
         System.out.println("채팅방 번호 : " + chatRoomId);
